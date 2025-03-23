@@ -4,6 +4,26 @@ const Booking = ({ setIsBooking }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+	const [service, setService] = useState('');
+
+	const Services = [
+		{
+			name: 'Fade',
+			price: '1 Monster',
+		},
+		{
+			name: 'Buzzcut',
+			price: '1 Monster',
+		},
+		{
+			name: 'Kliendi soov',
+			price: '2 Monsterit',
+		},
+		{
+			name: 'Soeng koos viisaka teenindusega',
+			price: '4 Monsterit',
+		},
+	];
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -19,7 +39,7 @@ const Booking = ({ setIsBooking }) => {
 				template_id: 'template_o972fxp',
 				template_params: {
 					from_name: name,
-					message: `Klient ${name} soovib aega broneerida kuupäevaks ${date}. Kliendi email on ${email}.`,
+					message: `Klient ${name} soovib aega broneerida, ${date} kuupäevaks. Kliendi email on ${email}. Teenus on ${service}.`,
 				},
 			}),
 		})
@@ -67,6 +87,23 @@ const Booking = ({ setIsBooking }) => {
 						className='p-2 rounded-md bg-neutral-800 border-2 border-neutral-700 outline-0'
 					/>
 				</div>
+
+				<select
+					required
+					className='p-2 rounded-md bg-neutral-800 border-2 border-neutral-700 outline-0'
+					defaultValue={''}
+					onChange={(e) => setService(e.target.value)}
+				>
+					<option value='' disabled selected>
+						Teenus:
+					</option>
+					{Services.map((service, index) => (
+						<option key={index} value={service.name}>
+							{service.name} - {service.price}
+						</option>
+					))}
+				</select>
+
 				<div className='flex flex-col'>
 					<input
 						type='date'
