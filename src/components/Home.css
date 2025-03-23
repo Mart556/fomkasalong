@@ -1,0 +1,18 @@
+import React from 'react';
+import './Home.css';
+
+const Home = () => {
+    return (
+        <div className="home-container">
+            <header className="home-header">Welcome to Home</header>
+            <div className="home-content">
+                <p>This is the home page content. Here you can find various information and resources.</p>
+            </div>
+            <footer className="home-footer">
+                &copy; 2023 Your Company. All rights reserved.
+            </footer>
+        </div>
+    );
+};
+
+export default Home;
