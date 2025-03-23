@@ -3,7 +3,7 @@ import { useState } from 'react';
 const Booking = ({ setIsBooking }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
-	const [date, setDate] = useState('');
+	const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -48,32 +48,32 @@ const Booking = ({ setIsBooking }) => {
 			<h1 className='text-5xl text-white'>Küsi aega</h1>
 			<form onSubmit={handleSubmit} className='flex flex-col gap-y-4'>
 				<div className='flex flex-col'>
-					<label className='text-white'>Täisnimi:</label>
 					<input
 						type='text'
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 						required
+						placeholder='Täisnimi:'
 						className='p-2 rounded-md bg-neutral-800 border-2 border-neutral-700 outline-0'
 					/>
 				</div>
 				<div className='flex flex-col'>
-					<label className='text-white'>Email:</label>
 					<input
 						type='email'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
+						placeholder='Email:'
 						className='p-2 rounded-md bg-neutral-800 border-2 border-neutral-700 outline-0'
 					/>
 				</div>
 				<div className='flex flex-col'>
-					<label className='text-white'>Kuupäev:</label>
 					<input
 						type='date'
 						value={date}
 						onChange={(e) => setDate(e.target.value)}
 						required
+						placeholder='Kuupäev:'
 						className='p-2 rounded-md bg-neutral-800 border-2 border-neutral-700 outline-0'
 					/>
 				</div>
@@ -91,7 +91,7 @@ const Booking = ({ setIsBooking }) => {
 						type='submit'
 						className='mt-4 p-2 bg-blue-500 text-white rounded-md w-[50%] cursor-pointer'
 					>
-						Book Now
+						Saada
 					</button>
 				</div>
 			</form>
