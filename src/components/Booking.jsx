@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Button from './Button';
+
 const Booking = ({ setIsBooking }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -64,7 +66,7 @@ const Booking = ({ setIsBooking }) => {
 	};
 
 	return (
-		<div className='flex flex-col mx-5 items-center justify-center gap-y-10 outline-2xl bg-neutral-900/60 p-15 md:w-[400px] rounded-2xl backdrop-blur-2xl'>
+		<div className='flex flex-col mx-5 items-center justify-center gap-y-10 outline-2xl bg-neutral-900/60 p-10 md:w-[400px] rounded-2xl backdrop-blur-2xl'>
 			<h1 className='text-5xl text-white'>Küsi aega</h1>
 			<form onSubmit={handleSubmit} className='flex flex-col gap-y-4'>
 				<div className='flex flex-col'>
@@ -115,21 +117,33 @@ const Booking = ({ setIsBooking }) => {
 					/>
 				</div>
 
-				<div className='flex flex-row gap-x-4'>
-					<button
+				<div className='flex flex-row gap-x-4 mt-4'>
+					<Button
+						className='w-[50%]'
+						onClick={() => setIsBooking(false)}
+						label='Tagasi'
+					></Button>
+
+					<Button
+						className='w-[50%]'
+						label='Saada'
+						type='submit'
+					></Button>
+
+					{/* <button
 						type='button'
 						className='mt-4 p-2 bg-red-500 text-white rounded-md w-[50%] cursor-pointer'
 						onClick={() => setIsBooking(false)}
 					>
 						Tagasi
-					</button>
+					</button> */}
 
-					<button
+					{/* <button
 						type='submit'
 						className='mt-4 p-2 bg-blue-500 text-white rounded-md w-[50%] cursor-pointer'
 					>
 						Saada
-					</button>
+					</button> */}
 				</div>
 			</form>
 		</div>

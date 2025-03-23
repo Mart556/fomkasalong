@@ -17,7 +17,7 @@ const Home = ({ setIsBooking }) => {
 				className='rounded-4xl w-50 h-50'
 			/>
 
-			<Button className='' onClick={() => setIsBooking(true)}></Button>
+			<Button onClick={() => setIsBooking(true)}></Button>
 
 			<div className='flex gap-x-5'>
 				<a
