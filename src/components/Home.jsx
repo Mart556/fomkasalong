@@ -36,7 +36,12 @@ const Home = ({ setIsBooking }) => {
 				</a>
 			</div>
 
-			<h2 className='text-lg md:text-2xl'>Elva | +372 5303 4840</h2>
+			<h2 className='text-lg md:text-2xl'>
+				Elva |{' '}
+				<a href='tel:+37253034840' className=''>
+					+372 5303 4840
+				</a>
+			</h2>
 		</div>
 	);
 };
